@@ -1,6 +1,9 @@
 data/*
-
-
+results/datasets/strava_infrastructure_match/
+results/datasets/sweep_results/*
+results/model_checkpoints/*
+!results/model_checkpoints/FCNN_best_model_weights_sweep_11031850.pth
+!results/model_checkpoints/FCNN_best_test_mae_11031850.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
