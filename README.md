@@ -73,7 +73,8 @@ This project investigates how **Strava Metro data** can be leveraged to understa
 │
 ├── results/                       # Output results and figures
 │   ├── datasets/                  # Processed datasets
-│   └── figures/                   # Generated figures
+│   ├── figures/                   # Generated figures
+|   ├── network_results/
 │
 ├── docs/                          # Documentation
 ├── setup.py                       # Package setup file
@@ -116,17 +117,6 @@ This project investigates how **Strava Metro data** can be leveraged to understa
    FULL_PAGE_WIDTH_CM=17
    FULL_PAGE_LENGTH_CM=24
    ```
-
-### Dependencies
-
-- `torch` - Deep learning framework
-- `geopandas` - Geospatial data handling
-- `shapely` - Geometric operations
-- `pandas` / `numpy` - Data manipulation
-- `scikit-learn` - Machine learning utilities
-- `matplotlib` - Visualization
-- `wandb` - Experiment tracking (optional)
-- `python-dotenv` - Environment variable management
 
 ## 🔄 Data Processing Pipeline
 
@@ -250,5 +240,5 @@ If you use this code in your research, please cite:
 ## 🤝 Acknowledgments
 
 - Strava Metro for providing the cycling data
-- Brussels Mobility for bike counter data
+- Brussels Mobility for bike counter and infrastructure data
 - Vrije Universiteit Brussel for supporting this research
