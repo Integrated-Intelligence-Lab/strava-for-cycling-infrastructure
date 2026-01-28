@@ -85,7 +85,8 @@ This project investigates how **Strava Metro data** can be leveraged to understa
 
 ### Prerequisites
 
-- Python 3.9 or higher
+- Python 3.10 or higher
+- [uv](https://docs.astral.sh/uv/) - Fast Python package manager
 - CUDA-capable GPU (recommended for training)
 
 ### Setup
@@ -96,19 +97,34 @@ This project investigates how **Strava Metro data** can be leveraged to understa
    cd strava-for-cycling-infrastructure
    ```
 
-2. **Create a virtual environment:**
+2. **Install uv (if not already installed):**
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   # On Windows (PowerShell)
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   
+   # On macOS/Linux
+   curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
-3. **Install dependencies:**
+3. **Create virtual environment and install dependencies:**
    ```bash
-   pip install -r requirements.txt
-   pip install -e .
+   # This will create a .venv and install all dependencies including PyTorch with CUDA 12.1
+   uv sync
    ```
 
-4. **Set up environment variables:**
+4. **Activate the virtual environment:**
+   ```bash
+   # On Windows (PowerShell)
+   .venv\Scripts\Activate.ps1
+   
+   # On Windows (cmd)
+   .venv\Scripts\activate.bat
+   
+   # On macOS/Linux
+   source .venv/bin/activate
+   ```
+
+5. **Set up environment variables:**
    
    Create a `.env` file in the root directory:
    ```env
@@ -117,6 +133,17 @@ This project investigates how **Strava Metro data** can be leveraged to understa
    FULL_PAGE_WIDTH_CM=17
    FULL_PAGE_LENGTH_CM=24
    ```
+
+### Running scripts with uv
+
+You can run scripts directly using `uv run` without manually activating the environment:
+
+```bash
+# Run a script
+uv run python scripts/preprocessing/merged_strava.py
+
+
+```
 
 ## 🔄 Data Processing Pipeline
 
